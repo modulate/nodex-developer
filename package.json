@@ -1,5 +1,5 @@
 {
-  "name": "@modulate/develop",
+  "name": "@modulate/developer",
   "version": "0.0.0",
   "description": "Components for building developer tooling with Bixby.js.",
   "keywords": [
@@ -14,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/modulate/nodex-develop.git"
+    "url": "git://github.com/modulate/nodex-developer.git"
   },
   "bugs": {
-    "url": "http://github.com/modulate/nodex-develop/issues"
+    "url": "http://github.com/modulate/nodex-developer/issues"
   },
   "license": "MIT",
   "licenses": [

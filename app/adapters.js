@@ -6,7 +6,7 @@ exports = module.exports = function(IoC, github, logger) {
   
   return Promise.resolve(adapters)
     .then(function(adapters) {
-      var components = IoC.components('http://schemas.modulate.io/js/develop/proj/ProjectAdapter');
+      var components = IoC.components('http://schemas.modulate.io/js/developer/project/ProjectAdapter');
     
       return Promise.all(components.map(function(c) { return c.create(); } ))
         .then(function(plugins) {
