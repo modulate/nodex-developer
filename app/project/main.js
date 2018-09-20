@@ -1,4 +1,4 @@
-exports = module.exports = function(adapters, utils) {
+exports = module.exports = function(adapters) {
   
   var api = {};
   

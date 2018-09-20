@@ -26,7 +26,6 @@ exports = module.exports = function(IoC, github, logger) {
     });
 }
 
-exports['@singleton'] = true;
 exports['@require'] = [
   '!container',
   './adapters/github',

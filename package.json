@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Components for building developer tooling with Bixby.js.",
   "keywords": [
+    "developer",
     "project",
     "management",
     "github"
@@ -41,6 +42,7 @@
     "chai": "^4.1.2",
     "make-node": "^0.3.0",
     "mocha": "^5.2.0",
+    "proxyquire": "^2.1.0",
     "sinon": "^6.1.3",
     "sinon-chai": "^3.2.0"
   },
