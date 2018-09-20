@@ -1,7 +1,7 @@
 {
-  "name": "@modulate/develop-proj",
+  "name": "@modulate/develop",
   "version": "0.0.0",
-  "description": "Project management components for building developer tooling with Bixby.js.",
+  "description": "Components for building developer tooling with Bixby.js.",
   "keywords": [
     "project",
     "management",
@@ -14,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/modulate/nodex-develop-proj.git"
+    "url": "git://github.com/modulate/nodex-develop.git"
   },
   "bugs": {
-    "url": "http://github.com/modulate/nodex-develop-proj/issues"
+    "url": "http://github.com/modulate/nodex-develop/issues"
   },
   "license": "MIT",
   "licenses": [
