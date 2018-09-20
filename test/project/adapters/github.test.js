@@ -148,6 +148,12 @@ describe('project/adapters/github', function() {
           });
         });
         
+        it('should invoke repos.get', function() {
+          expect(getStub.callCount).to.equal(1);
+          var call = getStub.getCall(0)
+          expect(call.args[0]).to.deep.equal({ repo: 'passport-slack', owner: 'mjpearson' });
+        });
+        
         it('should yield project', function() {
           expect(proj).to.deep.equal({
             name: 'passport-slack',
@@ -160,8 +166,57 @@ describe('project/adapters/github', function() {
             modifiedAt: new Date('2017-11-10T03:37:09Z')
           });
         });
-        
       }); // normal project
+      
+      describe('not found', function() {
+        var getStub = sinon.stub().yields({
+          message: '{"message":"Not Found","documentation_url":"https://developer.github.com/v3"}',
+          code: 404,
+          status: 'Not Found',
+          headers: 
+           { date: 'Mon, 27 Nov 2017 22:23:59 GMT',
+             'content-type': 'application/json; charset=utf-8',
+             'content-length': '77',
+             connection: 'close',
+             server: 'GitHub.com',
+             status: '404 Not Found',
+             'x-ratelimit-limit': '5000',
+             'x-ratelimit-remaining': '4998',
+             'x-ratelimit-reset': '1511824994',
+             'x-oauth-scopes': 'public_repo',
+             'x-accepted-oauth-scopes': 'repo',
+             'x-github-media-type': 'github.drax-preview; format=json',
+             'access-control-expose-headers': 'ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval',
+             'access-control-allow-origin': '*',
+             'content-security-policy': 'default-src \'none\'',
+             'strict-transport-security': 'max-age=31536000; includeSubdomains; preload',
+             'x-content-type-options': 'nosniff',
+             'x-frame-options': 'deny',
+             'x-xss-protection': '1; mode=block',
+             'x-runtime-rack': '0.031205',
+             'x-github-request-id': 'E227:13A17:3E4F:4FD3:5A1C907F' }
+        })
+        
+        function GitHubApi(options) {
+          return {
+            repos: { get: getStub }
+          };
+        }
+        
+        var proj;
+        before(function(done) {
+          var github = $require('../../../app/project/adapters/github', { '@octokit/rest': GitHubApi })();
+          github.info({ url: 'git://github.com/mjpearson/passport-slack.git' }, function(err, p) {
+            if (err) { return done(err); }
+            proj = p;
+            done();
+          });
+        });
+        
+        it('should not yield project', function() {
+          expect(proj).to.equal(undefined)
+        });
+      }); // not found
       
     }); // .info
     
