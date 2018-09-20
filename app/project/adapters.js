@@ -1,5 +1,5 @@
 exports = module.exports = function(IoC, github, logger) {
-  var Adapters = require('../lib/adapters');
+  var Adapters = require('../../lib/adapters');
   
   
   var adapters = new Adapters();
