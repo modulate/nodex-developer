@@ -28,9 +28,9 @@
   ],
   "main": "./app",
   "assembly": {
-    "namespace": "io.modulate/develop/proj",
+    "namespace": "io.modulate/developer",
     "components": [
-      "main"
+      "project/main"
     ]
   },
   "dependencies": {

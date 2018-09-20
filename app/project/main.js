@@ -22,7 +22,7 @@ exports = module.exports = function(adapters, utils) {
   return api;
 };
 
-exports['@implements'] = 'http://schemas.modulate.io/js/develop/proj';
+exports['@implements'] = 'http://schemas.modulate.io/js/developer/project';
 exports['@singleton'] = true;
 exports['@require'] = [
   './adapters'
