@@ -15,7 +15,7 @@ exports = module.exports = function(IoC, github, logger) {
             adapters.use(plugin);
           });
           
-          //adapters.use(ldap);
+          adapters.use(github);
         })
         .then(function() {
           return adapters;

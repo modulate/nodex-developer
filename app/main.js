@@ -1,20 +1,22 @@
-exports = module.exports = function(agent, utils) {
+exports = module.exports = function(adapters, utils) {
+  
   var api = {};
   
-  
-  api.info = function(url, id, options, cb) {
-    console.log('GET PROJECT INFO!');
-    
-    /*
+  api.info = function(url, options, cb) {
     if (typeof options == 'function') {
       cb = options;
       options = undefined;
     }
     options = options || {};
     options.url = url;
-    */
     
-    
+    var adapter;
+    try {
+      adapter = adapters.get(options);
+    } catch (ex) {
+      return cb(ex);
+    }
+    return adapter.info(options, cb);
   }
   
   return api;
