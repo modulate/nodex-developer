@@ -30,6 +30,7 @@
   "assembly": {
     "namespace": "io.modulate/develop/proj",
     "components": [
+      "main"
     ]
   },
   "devDependencies": {
